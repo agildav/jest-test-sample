@@ -1,12 +1,3 @@
-const googleDatabase = [
-  "cats.com",
-  "flowers.com",
-  "animals.com",
-  "catpictures.com",
-  "myfavcats.com",
-  "myfavcats2.com"
-];
-
 const googleSearch = (searchInput, db) => {
   return new Promise((resolve, reject) => {
     const matches = db.filter(website => {

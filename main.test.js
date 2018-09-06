@@ -13,26 +13,33 @@ const dbMock = [
 
 describe("googleSearch", () => {
   test("returns 1 match", () => {
-    googleSearch("cat", dbMock).then(matches => {
+    expect.assertions(1);
+    return googleSearch("cat", dbMock).then(matches => {
       expect(matches).toEqual(["cat.com"]);
     });
   });
 
   test("returns no matches", () => {
-    googleSearch("test", dbMock).then(matches => {
+    expect.assertions(1);
+    return googleSearch("test", dbMock).then(matches => {
       expect(matches).toEqual([]);
     });
   });
   test("returns max 3 matches", () => {
-    googleSearch("dog", dbMock).then(matches => {
+    expect.assertions(1);
+    return googleSearch("dog", dbMock).then(matches => {
       expect(matches.length).toEqual(3);
     });
   });
-  test("works with null / undefined", () => {
-    googleSearch(null, dbMock).then(matches => {
+  test("works with null", () => {
+    expect.assertions(1);
+    return googleSearch(null, dbMock).then(matches => {
       expect(matches).toEqual([]);
     });
-    googleSearch(undefined, dbMock).then(matches => {
+  });
+  test("works with undefined", () => {
+    expect.assertions(1);
+    return googleSearch(undefined, dbMock).then(matches => {
       expect(matches).toEqual([]);
     });
   });
